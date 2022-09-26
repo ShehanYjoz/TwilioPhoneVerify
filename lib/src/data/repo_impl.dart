@@ -52,12 +52,11 @@ class TwilioVerifyRepositoryImpl implements TwilioVerifyRepository {
   }
 
   @override
-  Future<TwilioResponse> verifySmsCode(String phone, String code) async {
+  Future<TwilioResponse> verifySmsCode(String phone, String code,{String? locale="en"}) async {
     String url = '$baseUrl${TwilioVerifyEndpoint.verificationCheck}';
-
     return await resolveHttpRequest(
         url: url,
-        body: {'To': phone, 'Code': code},
+        body: { 'Locale' : locale , 'To': phone, 'Code': code},
         headers: {'Authorization': authorization});
   }
 
