@@ -20,8 +20,9 @@ class TwilioPhoneVerify {
   Future<TwilioResponse> sendSmsCode(String phone) async {
     return _repository.sendSmsCode(phone);
   }
-  Future<TwilioResponse> verifySmsCode({required String phone, required String code}) async {
-    return _repository.verifySmsCode(phone,code);
+  
+  Future<TwilioResponse> verifySmsCode({required String phone, required String code, String? locale="en"}) async {
+    return _repository.verifySmsCode(phone,code,locale:locale);
   }
 
   Future<TwilioResponse> sendEmailCode(String email,{EmailChannelConfiguration? channelConfiguration}) async {
