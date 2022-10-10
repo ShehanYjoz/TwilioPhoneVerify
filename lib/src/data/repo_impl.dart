@@ -31,13 +31,13 @@ class TwilioVerifyRepositoryImpl implements TwilioVerifyRepository {
   }
 
   @override
-  Future<TwilioResponse> sendSmsCode(String phone) async {
+  Future<TwilioResponse> sendSmsCode(String phone,{String? locale="en"}) async {
     // TODO: implement sendEmailCode
     String url = '$baseUrl${TwilioVerifyEndpoint.verification}';
 
     return await resolveHttpRequest(
         url: url,
-        body: {'To': phone, 'Channel': 'sms'},
+        body: {'Locale' : locale ,'To': phone, 'Channel': 'sms'},
         headers: {'Authorization': authorization});
   }
 
