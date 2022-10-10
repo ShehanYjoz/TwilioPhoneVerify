@@ -17,8 +17,8 @@ class TwilioPhoneVerify {
             'Basic ' + base64Encode(utf8.encode('$accountSid:$authToken')));
   }
 
-  Future<TwilioResponse> sendSmsCode(String phone) async {
-    return _repository.sendSmsCode(phone);
+  Future<TwilioResponse> sendSmsCode(String phone,{ String? locale="en"}) async {
+    return _repository.sendSmsCode(phone,locale:locale);
   }
   
   Future<TwilioResponse> verifySmsCode({required String phone, required String code, String? locale="en"}) async {
